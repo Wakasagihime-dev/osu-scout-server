@@ -52,5 +52,5 @@ def hello_world():
     return render_template("index.html", docs=ldocs, first_id=ldocs[0]["_id"], last_id=ldocs[-1]["_id"])
 
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
