@@ -1,0 +1,64 @@
+{% for doc in docs %}
+
+<div class="beatmap-card">
+  <div class="image-wrap">
+    <img src="{{doc.bg_url}}" alt="background image of the beatmapset" />
+  </div>
+  <div class="map-link">
+    <a href="{{doc.url}}" target="_blank">{{doc.title}}</a>
+  </div>
+
+  <div class="stats">
+    <div><span>Artist</span><span>{{doc.artist}}</span></div>
+    <div><span>Difficulty name</span><span>{{doc.version}}</span></div>
+    <div><span>Mapper</span><span>{{doc.creator}}</span></div>
+    <div>
+      <span>star rating</span><span>{{doc.star_rating | round(2)}}*</span>
+    </div>
+    <div><span>BPM</span><span>{{doc.bpm | round(2)}}</span></div>
+    <div><span>AR</span><span>{{doc.ar | round(2)}}</span></div>
+    <div><span>100% PP</span><span>{{doc.pp_100 | round(2)}}</span></div>
+    <div><span>95% PP</span><span>{{doc.pp_95 | round(2)}}</span></div>
+  </div>
+
+  <div class="more-btn">more...</div>
+
+  <div class="opt-stats">
+    <div><span>Beatmap ID</span><span>{{doc.id}}</span></div>
+    <div><span>Beatmapset ID</span><span>{{doc.beatmapset_id}}</span></div>
+    <div><span>Max combo</span><span>{{doc.max_combo | round(2)}}</span></div>
+    <div><span># Jump sections</span><span>{{doc.num_jump_secs}}</span></div>
+    <div>
+      <span>Avg # jumps per jump section</span
+      ><span>{{doc.avg_num_jumps | round(2)}}</span>
+    </div>
+    <div><span># Streams</span><span>{{doc.num_stream_secs}}</span></div>
+    <div>
+      <span>Avg stream length</span
+      ><span>{{doc.avg_stream_length | round(2)}}</span>
+    </div>
+    <div><span># Bursts</span><span>{{doc.num_burst_secs}}</span></div>
+    <div>
+      <span>Avg burst length</span
+      ><span>{{doc.avg_burst_length | round(2)}}</span>
+    </div>
+    <div>
+      <span># Irregular sections</span><span>{{doc.num_irr_secs}}</span>
+    </div>
+    <div>
+      <span>Irregular rhythm score (%)</span
+      ><span>{{doc.overall_irr_percent | round(2)}}</span>
+    </div>
+    <div>
+      <span>Stream spacing</span
+      ><span>{{doc["stream-spacing"] | round(2)}}</span>
+    </div>
+    <div>
+      <span>Stream density</span
+      ><span>{{doc["stream-density"] | round(2)}}</span>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<input type="hidden" id="prev" value="{{first_id}}" />
+<input type="hidden" id="next" value="{{last_id}}" />
